@@ -1,1 +1,1 @@
-# autotest-python
+Учеьный проект по автотестам на python с использованием PyTest
