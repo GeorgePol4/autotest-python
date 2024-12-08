@@ -8,7 +8,7 @@ def pytest_addoption(parser):
     parser.addoption('--language', action='store', default='en', help="Choose language") #парсим язык из строки терминала, задаем английский в качестве деыолтного 
 
 @pytest.fixture(scope="function")
-def browser():
+def browser(request):
     print("\nstart browser for test..")
     user_language = request.config.getoption("language")
     options = Options()
