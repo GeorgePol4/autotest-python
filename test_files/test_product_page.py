@@ -24,3 +24,27 @@ def test_guest_can_add_product_to_basket_params(browser, promo_num):
     page.add_product_to_basket()
     page.solve_quiz_and_get_code()
     #требуется проверка совпадения названия продукта, стоимости и того, что в алерте после добавления, добавить в product_page стадии проверки в метод добавления в корзину 
+
+def test_add_product_to_basket_and_see_name_and_price_success_message_not_presented(browser):
+    link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
+    page = ProductPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
+    page.open()                      # открываем страницу
+    page.add_product_to_basket()
+    page.solve_quiz_and_get_code()
+    page.show_product_name_and_basket_price()
+    page.should_not_be_success_message()
+
+def test_add_product_to_basket_and_see_name_and_price_success_message_presented(browser):
+    link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
+    page = ProductPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
+    page.open()                      # открываем страницу
+    page.test_guest_cant_see_success_message()
+
+def test_add_product_to_basket_and_see_name_and_price_success_message_dissapeared(browser):
+    link = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
+    page = ProductPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
+    page.open()                      # открываем страницу
+    page.add_product_to_basket()
+    page.solve_quiz_and_get_code()
+    page.show_product_name_and_basket_price()
+    page.test_message_disappeared_after_adding_product_to_basket()

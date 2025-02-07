@@ -11,3 +11,4 @@ class ProductPageLocators():
     PRODUCT_NAME = (By.CSS_SELECTOR, ".col-sm-6.product_main h1")
     PRODUCT_NAME_ADDED = (By.CSS_SELECTOR, "#messages div:nth-child(1) strong")
     PRICE_BUSKET = (By.CSS_SELECTOR, ".alertinner p strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(1) strong")
